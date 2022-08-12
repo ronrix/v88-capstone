@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 @import "variables/main.less";
+
+* {
+	font-family: 'Open Sans', sans-serif;
+	box-sizing: border-box;
+}
 
 body {
 	background-color: #fff;
@@ -6,10 +12,21 @@ body {
 }
 
 .btn {
-	background-color: @primary-color !important;
+	background-color: @secondary-color !important;
 	color: #fff;
 
 	&:hover {
-		opacity: 0.9;
+		background-color: @primary-color !important;
+		color: #fff;
 	}
+}
+
+.alert.alert-danger {
+	padding: 2px !important;
+	margin: 1px !important;
+}
+.alert.alert-danger p {
+	font-size: 8px;
+	margin: 0;
+	margin-bottom: 2px;
 }
