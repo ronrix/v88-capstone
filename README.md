@@ -6,8 +6,8 @@ you can see the clickable prototype in
 [ERD](./ERD/capstone-erd.png)
 
 ## What was used
-[^1]: The project uses codeignier built-in query for manipulating database
-[^2]: The project uses bootstrap and jquery as well as fontawesome for icons
+- The project uses codeignier built-in query for manipulating database.
+- The project uses bootstrap and jquery as well as fontawesome for icons.
 
 ### Login page
 > two input fields, email and password. it takes to its respective route depending on the role of the user
