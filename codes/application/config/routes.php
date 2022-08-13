@@ -55,6 +55,8 @@ $route['register'] = 'users/register';
 $route['process_login'] = 'users/process_login';
 $route['process_register'] = 'users/process_register';
 
+// dashboard
+$route["logout"] = "dashboards/logout";
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

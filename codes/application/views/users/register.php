@@ -56,8 +56,8 @@
 						</div>
 						<div class="form-floating mb-3">
 							<select name="role" class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-								<option selected value="1">Buyer</option>
-								<option value="2">Seller</option>
+								<option selected value="0">Buyer</option>
+								<option value="1">Seller</option>
 							</select>
 							<label for="floatingSelectGrid">Role</label>
 						</div>

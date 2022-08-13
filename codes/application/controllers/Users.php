@@ -9,6 +9,10 @@ class Users extends CI_Controller {
 	}
 
 	public function index() {
+		if($this->session->userdata("user_id")) {
+			redirect("dashboards");
+			return;
+		}
 		$this->load->view('users/login');
 	}
 
@@ -27,7 +31,8 @@ class Users extends CI_Controller {
 			$this->session->set_flashdata("errors", validation_errors());			
 		}
 		else {
-			redirect("/dashboard");
+			$this->session->set_userdata("user_id", $res);		
+			redirect("dashboards");
 		}
 		redirect("/");
 	}
@@ -38,7 +43,7 @@ class Users extends CI_Controller {
 		$user_id = $this->User->register($fields, $this->myconfig["encryption_key"]);		
 		if($user_id) {
 			$this->session->set_userdata("user_id", $user_id);		
-			redirect("/dashboard");
+			redirect("dashboards");
 		}
 		else {
 			$this->session->set_flashdata("errors", validation_errors());			
