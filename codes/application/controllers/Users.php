@@ -9,6 +9,11 @@ class Users extends CI_Controller {
 	}
 
 	public function index() {
+		$view_data["user"] = $this->session->userdata("user_id");
+		$this->load->view("index", $view_data);
+	}
+
+	public function login() {
 		if($this->session->userdata("user_id")) {
 			redirect("dashboards");
 			return;

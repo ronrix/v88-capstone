@@ -1,0 +1,92 @@
+@import "../variables/colors.less";
+
+::placeholder {
+  color: #fff;
+}
+
+div.container-fluid {
+	header {
+		background-color: @secondary-color;
+
+		a {
+			color: #fff;
+		}
+
+		form.search {
+			border: 1px solid @third-color;
+			padding: 5px;
+			color: @third-color;
+
+			i {
+				font-size: 1.5em;
+			}
+
+			input {
+				background-color: transparent;
+				outline: none;
+				border: none;
+				color: #fff;
+			}
+		}
+
+		div.cart {
+	    	position: relative;
+	        font-size: 25px;
+	        position: relative;
+	        padding: 3px 8px 0 0;
+
+	        i:hover {
+	        	color: @third-color;
+	        }
+
+	        .cart-count {
+	            border-radius: 50px;
+	            width: 20px;
+	            font-weight: 500;
+	            font-size: 12px;
+	            color: rgb(255, 255, 255);
+	            padding: 1px 3px 1px 3px;
+	            background-color: rgb(255, 5, 47);
+	            position: absolute;
+	            top: 0;
+	            right: 0;
+	        }
+	    }
+	}
+	a {
+		text-decoration: none;
+	}
+
+	div.row {
+		div.carousel-item {
+			div {
+				display: flex;
+				@media (max-width: 752px) {
+					& {
+						flex-direction: column;
+					}
+					& img {
+						margin: auto;
+					}
+				}
+
+				@media (min-width: 753px) {
+					& {
+						flex-direction: row;
+					}
+				}
+			}
+			img {
+				width: 50% !important;
+			}
+		}
+	}
+    
+    span.carousel-control-prev-icon {
+    	background-color: @secondary-color;
+    }
+
+    span.carousel-control-next-icon {
+    	background-color: @secondary-color;
+    }
+}
