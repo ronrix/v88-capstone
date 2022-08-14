@@ -3,7 +3,7 @@
 you can see the clickable prototype in
 > here [index.html](./index.html)
 
-[ERD](./ERD/capstone-erd.png)
+![ERD](https://raw.githubusercontent.com/ronrix/v88-capstone/main/codes/ERD/capstone-erd.png?token=GHSAT0AAAAAABXRMDOATCRWMM6JIAWEE32EYXZDEBA)
 
 ## What was used
 - The project uses codeignier built-in query for manipulating database.
