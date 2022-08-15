@@ -1,0 +1,164 @@
+@import "../variables/colors.less";
+
+
+section.form {
+	min-height: 100vh;
+
+	h1 {
+		font-weight: 400;		
+		text-align: left;
+
+		span {
+			font-weight: 700;
+		}
+	}
+	h1, h2 {
+		color: @secondary-color;
+	}
+
+	div.to-margin {
+		margin-top: 80px !important;
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+img.logo {
+	width: 30%;
+}
+
+
+section.landpage {
+	position: relative;
+	color: #fff;
+	background-color: @primary-color;
+	padding: 50px;
+
+	h3 {
+		font-size: 4em;
+		font-weight: 700;
+	}
+
+	p {
+		font-size: 1.5em;
+	}
+
+	div.box {
+		background-color: @secondary-color;
+		border-radius: 20px;
+		position: absolute;
+		z-index: 50;
+		width: 300px;
+		height: 300px;
+		left: -100px;
+		bottom: -200px;
+	}
+	div.circle {
+	    background-color: @secondary-color;
+	    border-radius: 50%;
+	    position: absolute;
+	    z-index: 50;
+		width: 400px;
+	    height: 400px;
+	}
+	div.circle-1 {
+	    bottom: -200px;
+	    right: -100px;
+	}
+	div.circle-2 {
+	    bottom: -300px;
+	    right: 200px;
+	}
+	div.circle-3 {
+	    bottom: 100px;
+	    right: -100px;
+	}
+
+	img {
+		position: absolute;
+		width: 300px;
+		z-index: 100;
+	}
+	img.img-2 {
+		width: 150px;
+		right: 350px;
+		bottom: 250px;
+	}
+	img.img-1 {
+		right: 50px;
+		bottom: 80px;
+	}
+
+	@media (max-width: 991px) {
+		div.circle {
+			width: 200px;
+			height: 200px;
+		}
+		div.circle-1, div.circle-2{
+			bottom: -50px;
+		}
+		div.circle-1 {
+			width: 400px;
+			height: 400px;
+			right: -150px;
+		}
+		img {
+			width: 200px;
+		}
+		img.img-2 {
+			right: 250px;
+			bottom: 150px;
+		}
+	}
+
+	@media (min-width: 992px) {
+		div.circle {
+			width: 300px;
+			height: 300px;
+		}
+		div.circle-1, div.circle-2{
+			bottom: -150px;
+		}
+		div.circle-1 {
+			width: 400px;
+			height: 400px;
+			right: -150px;
+		}
+		img {
+			width: 200px;
+		}
+		img.img-2 {
+			right: 250px;
+			bottom: 150px;
+		}
+	}	
+
+	@media (min-width: 1200px) {
+		div.circle {
+			width: 400px;
+			height: 400px;
+		}
+
+		img {
+			position: absolute;
+			width: 300px;
+			z-index: 100;
+		}
+		img.img-2 {
+			right: 350px;
+			bottom: 250px;
+		}
+		img.img-1 {
+			right: 50px;
+			bottom: 80px;
+		}
+
+	}
+}
+@media (max-width: 576px) {
+	section.landpage {
+		height: 600px;
+	}
+}

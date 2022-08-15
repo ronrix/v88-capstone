@@ -1,11 +1,11 @@
   <!---------------------Navigation-------------------->
-        <header class="row">
+        <header class="row py-2">
             <a class="col-xs-12 col-md-3 d-flex justify-content-center align-items-center text-decoration-none" href="/home">
-                <h1>Shop<span>ah</span></h1> eCommerce
+                <h1>DO<span>JO</span></h1> eCommerce
             </a>
-            <form class="col-xs-12 col-md-5 p-0 px-2 align-self-center search" action="" method="POST">
+            <form class="col-xs-12 d-flex align-items-center col-md-5 p-0 px-2 search" action="" method="POST">
                 <i class="bi bi-search"></i>
-                <input class="col-11" type="search" name="search_input" placeholder="search">
+                <input class="col-11 ms-2" type="search" name="search_input" placeholder="search">
             </form>
             <div class="col-xs-12 col-md-3 align-self-center d-flex justify-content-between align-items-center">
                 <div class="col d-flex justify-content-around align-items-center">
@@ -39,7 +39,7 @@
 <?php   } ?> 
                 </div>
                 <div class="text-center cart col-2">
-                    <a href="cart.html" class="text-light w-100">
+                    <a href="/cart" class="text-light w-100">
                         <i class="bi bi-cart-fill"></i>
                         <div class="cart-count ">12</div>
                     </a>
@@ -57,9 +57,9 @@
                                     <i class="bi bi-person-plus-fill"></i>
                                     Create an account
                                 </a>
-                                <a href="/guest" class="btn d-block">
+                                <a href="/login" class="btn d-block">
                                     <i class="bi bi-person"></i>
-                                    Sign in as Guest
+                                    Sign in
                                 </a>
                             </div>
                             <div class="modal-footer">

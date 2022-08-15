@@ -58,9 +58,10 @@ $route['process_register'] = 'users/process_register';
 
 // dashboard
 $route["logout"] = "dashboards/logout";
-$route["dashboards/products"] = "dashboards/admin";
+$route["admin"] = "dashboards/admin";
 $route["home"] = "dashboards/home";
 $route["products"] = "dashboards/products";
+$route["cart"] = "dashboards/cart";
 
 // products
 $route["products/show/(:any)"] = "products/show/$1";

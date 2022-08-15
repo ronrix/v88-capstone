@@ -16,7 +16,7 @@ class Dashboards extends CI_Controller {
 			redirect("/login");
 		}
 		if($this->is_admin["is_admin"]) {
-			redirect("/products");
+			redirect("/admin");
 		}
 		else {
 			$view_data["user"] = $this->user_id;
@@ -36,6 +36,11 @@ class Dashboards extends CI_Controller {
 
 	public function admin() {
 		$this->load->view("dashboard/index");
+	}
+
+	public function cart() {
+		$view_data["user"] = $this->user_id;
+		$this->load->view("dashboard/cart", $view_data);
 	}
 
 	public function logout() {

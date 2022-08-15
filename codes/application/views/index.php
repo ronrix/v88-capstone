@@ -20,7 +20,11 @@
 </head>
 <body>
     <div class="container-fluid">
+        <!-- header -->
         <?php $this->load->view("partials/header", $user) ?>
+        <!-- payment modal -->
+        <?php $this->load->view("partials/payment-form") ?>
+
         <!---------------------Main Container-------------------->
         <div class="row mb-4">
             <!-------------------Carousel------------------->
@@ -43,9 +47,9 @@
                                 <i class="bi bi-star-fill"></i>
                                 <i class="bi bi-star-fill"></i>
                                 <p>Price: $1000</p>
-                                <form>
-                                    <input type="submit" value="Buy" class="btn btn-success">
-                                </form>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#billout">
+                                    Buy
+                                </a>
                             </section>
                         </div>
                     </div>
@@ -66,9 +70,9 @@
                                 <i class="bi bi-star-fill"></i>
                                 <i class="bi bi-star-fill"></i>
                                 <p>Price: $1000</p>
-                                <form>
-                                    <input type="submit" value="Buy" class="btn btn-success">
-                                </form>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#billout">
+                                    Buy
+                                </a>
                             </section>
                         </div>
                     </div>
@@ -89,9 +93,9 @@
                                 <i class="bi bi-star-fill"></i>
                                 <i class="bi bi-star-fill"></i>
                                 <p>Price: $1000</p>
-                                <form>
-                                    <input type="submit" value="Buy" class="btn btn-success">
-                                </form>
+                                <a href="" class="btn" data-bs-toggle="modal" data-bs-target="#billout">
+                                    Buy
+                                </a>
                             </section>
                         </div>
                     </div>

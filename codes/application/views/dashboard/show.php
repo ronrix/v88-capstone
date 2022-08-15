@@ -23,79 +23,123 @@
 </head>
 <body>
     <div class="container-fluid">
+        <!-- header -->
         <?php $this->load->view("partials/header", $user) ?>
+        <!-- payment form -->
+        <?php $this->load->view("partials/payment-form") ?>
 
-        <div class="row">
-            <a href="">Go back</a>
-        </div>
+        <div class="container">
+            <div class="row">
+                <a href="" class="my-3">Go back</a>
+            </div>
 
-        <div class="row">
-            <div class="col-4">
-                <h2>Black Belt for Staff</h2>
-                <img class="w-50" id="default-thumbnail" data-alt="<?= base_url("assets/images/s1.jpg") ?>" src="<?= base_url("assets/images/s1.jpg") ?>" alt="sample img">
-                <div class="d-flex" id="other-thumbnails">
-                    <img class="w-25 border border-success" src="<?= base_url("assets/images/s1.jpg") ?>" alt="sample img">
-                    <img class="w-25 border" src="<?= base_url("assets/images/i1.jpeg") ?>" alt="sample img">
+            <!-- Show product -->
+            <div class="row">
+                <div class="col-4">
+                    <h2>Black Belt for Staff</h2>
+                    <img class="w-75" id="default-thumbnail" data-alt="<?= base_url("assets/images/s1.jpg") ?>" src="<?= base_url("assets/images/s1.jpg") ?>" alt="sample img">
+                    <div class="d-flex" id="other-thumbnails">
+                        <img class="w-25 border img-thumbnail border-success" src="<?= base_url("assets/images/s1.jpg") ?>" alt="sample img">
+                        <img class="w-25 border img-thumbnail" src="<?= base_url("assets/images/i1.jpeg") ?>" alt="sample img">
+                        <img class="w-25 border img-thumbnail" src="<?= base_url("assets/images/i1.jpeg") ?>" alt="sample img">
+                        <img class="w-25 border img-thumbnail" src="<?= base_url("assets/images/i1.jpeg") ?>" alt="sample img">
+                    </div>
+                </div>
+                <div class="col align-self-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <form>
+                        <a href="" class="btn me-3 d-inline-block">
+                            <i class="bi bi-cart-fill"></i>
+                            Add to cart
+                        </a>
+                        <input data-bs-toggle="modal" data-bs-target="#billout" type="button" class="btn me-3 d-inline-block" value="Buy">
+                        <select class="form-select w-auto d-inline-block" class="" aria-label="Default select example">
+                            <option selected>$1</option>
+                            <option value="1">$2</option>
+                            <option value="2">$3</option>
+                            <option value="3">$6</option>
+                        </select>
+                    </form>
                 </div>
             </div>
-            <div class="col">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <form class="d-flex">
-                    <input type="submit" class="btn me-3" value="Buy">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>$1</option>
-                        <option value="1">$2</option>
-                        <option value="2">$3</option>
-                        <option value="3">$6</option>
-                    </select>
+
+            <!-- Reviews -->
+            <div class="row mt-5">
+                <h3>Product Reviews</h3>
+                <div class="ms-4 mt-2 review">
+                    <h4>Ronrix Lante</h4>
+                    <h5 class="fs-6 text-dark">March 20, 2021</h5>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <p>Hi this is really good!</p>
+                    <a href="" id="reply">reply</a>
+
+                    <div class="replies mt-2 ms-4 border-top">
+                        <h4>Ronrix Lante</h4>
+                        <p>Thank you!</p>
+                    </div>
+
+                    <form action="" id="reply-form">
+                        <textarea name="" class="form-control"></textarea>
+                        <input type="submit" value="Reply" class="btn btn-secondary my-2">
+                    </form>
+                </div>
+                <form action="" class="mt-3">
+                    <h3>Leava a review</h3>
+                    <textarea name="review" class="form-control"></textarea>
+                    <input type="submit" class="btn btn-success mt-2" value="Post">
                 </form>
             </div>
-        </div>
 
-        <div class="row mt-5">
-            <h3>Similar Items</h3>
-            <div class="card m-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="<?= base_url("assets/images/s1.jpg") ?>" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
+            <!-- Similar products -->
+            <div class="row mt-5">
+                <h3>Similar Items</h3>
+                <div class="card m-2" style="width: 18rem;">
+                    <a href="/products/show/6">
+                        <img src="<?= base_url("assets/images/s1.jpg") ?>" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <p>Price: $1000</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card m-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="<?= base_url("assets/images/s1.jpg") ?>" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
+                <div class="card m-2" style="width: 18rem;">
+                    <a href="/products/show/6">
+                        <img src="<?= base_url("assets/images/s1.jpg") ?>" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <p>Price: $1000</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card m-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="<?= base_url("assets/images/s1.jpg") ?>" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
+                <div class="card m-2" style="width: 18rem;">
+                    <a href="/products/show/6">
+                        <img src="<?= base_url("assets/images/s1.jpg") ?>" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <p>Price: $1000</p>
+                    </div>
                 </div>
             </div>
         </div>
