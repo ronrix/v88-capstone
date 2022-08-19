@@ -9,7 +9,6 @@ you can see the clickable prototype in
 - The project uses codeignier built-in query for manipulating database.
 - The project uses bootstrap and jquery as well as fontawesome for icons.
 
-
 ### Login page
 > two input fields, email and password. it takes to its respective route depending on the role of the user
 
@@ -36,3 +35,4 @@ you can see the clickable prototype in
 ### So many features that was not created yet.
 ## will refactor this...
 ## even adding comments is little
+
