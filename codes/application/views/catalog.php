@@ -13,14 +13,18 @@
     <!-- font awesome library-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- main style -->
-    <link rel="stylesheet/less" type="text/css" href="assets/css/index.less">
-    <link rel="stylesheet/less" type="text/css" href="assets/css/pages/homepage.less">
+    <link rel="stylesheet/less" type="text/css" href="<?= base_url("assets/css/index.less")?>" >
+    <link rel="stylesheet/less" type="text/css" href="<?= base_url("assets/css/pages/homepage.less") ?>" >
     <!-- less library -->
     <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+    <!-- main script -->
+    <script src="<?= base_url("assets/js/catalog.js") ?>"></script>
 </head>
 <body>
     <div class="container-fluid">
-        <?php $this->load->view("partials/header", $user) ?>
+        <!-- header -->
+        <?php $this->load->view("partials/header") ?>
+        
         <!---------------------Main Container-------------------->
         <div class="row">
             <!---------------------Side Nav-------------------->
@@ -33,12 +37,8 @@
                         </button>
                     </div>
                     <p class="fw-bold m-0 mb-2 mt-3">Categories</p>
-                    <a href="#" class="d-block text-decoration-none">Keyboards</a>
-                    <a href="#" class="d-block text-decoration-none">Keyboards</a>
-                    <a href="#" class="d-block text-decoration-none">Keyboards</a>
-                    <a href="#" class="d-block text-decoration-none">Keyboards</a>
-                    <a href="#" class="d-block text-decoration-none">Keyboards</a>
-                    <a href="#" class="d-block text-decoration-none fw-bold">Show more</a>
+                    <div id="categories"></div>
+                    <a href="#" class="d-block text-decoration-none fw-bold mt-2">Show more</a>
                 </form>
                 <form action="" class="d-block d-md-none col-12 d-flex">
                     <div class="col">
@@ -62,44 +62,36 @@
                         <a href="">first</a>| <a href="">prev</a>|<a href="">2</a>| <a href="">next</a>
                     </div>
                 </div>
-                <form class="row">
+                <form class="row d-flex justify-content-end">
                     <select class="form-select w-auto" aria-label="Default select example">
                         <option selected>Price</option>
                         <option value="1">Most Popular</option>
                     </select>
                 </form>
-                <div class="d-flex">
-                    <div class="card m-2" style="width: 18rem;">
-                        <a href="/products/show/6">
-                            <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
+                <div class="d-flex" id="products">
+<?php
+	foreach($products as $product) { 
+        $img = json_decode($product["images_path"], true); ?>
+					<div class="card m-2" style="width: 18rem;">
+                        <a href="/product/show/<?= $product["id"] ?>" class="border" id="thumbnail">
+                            <img src="<?= base_url("{$img[0]}")?>" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                                
+                            <p class="card-text"><?= $product["description"] ?></p>                                
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
-                            <p>Price: $1000</p>
+                            <p>Price: $<?= $product["price"] ?></p>
                         </div>
                     </div>
-                    <div class="card m-2" style="width: 18rem;">
-                        <a href="/products/show/6">
-                            <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                                
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <p>Price: $1000</p>
-                        </div>
-                    </div>
+<?php } ?>
                 </div>
-                <!-- pagination -->
-                <?php $this->load->view("partials/pagination"); ?>
+                
+                <!---------------------Pagination-------------------->
+                <?php $this->load->view("partials/pagination") ?>
+              
             </div>
 
         </div>

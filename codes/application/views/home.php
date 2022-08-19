@@ -13,17 +13,17 @@
     <!-- font awesome library-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- main style -->
-    <link rel="stylesheet/less" type="text/css" href="assets/css/index.less">
-    <link rel="stylesheet/less" type="text/css" href="assets/css/pages/homepage.less">
+    <link rel="stylesheet/less" type="text/css" href="<?= base_url("assets/css/index.less") ?>">
+    <link rel="stylesheet/less" type="text/css" href="<?= base_url("assets/css/pages/homepage.less")?>" >
     <!-- less library -->
     <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
 </head>
 <body>
     <div class="container-fluid">
         <!-- header -->
-        <?php $this->load->view("partials/header", $user) ?>
+        <?php $this->load->view("partials/header") ?>
         <!-- payment modal -->
-        <?php $this->load->view("partials/payment-form") ?>
+        <?php $this->load->view("partials/payment") ?>
 
         <!---------------------Main Container-------------------->
         <div class="row mb-4">
@@ -112,104 +112,26 @@
         </div>
         <div class="row m-auto">
             <h3>Featured Products</h3>
-            <div class="card mx-auto m-md-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
-                </a>               
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> 
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
-                </div>
-            </div>
-            <div class="card mx-auto m-md-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
+
+<?php 
+    foreach($products as $product) {
+        $img = json_decode($product["images_path"], true); ?>
+            <div class="card m-2 overflow-hidden" style="width: 18rem;">
+                <a href="/product/show/<?= $product["id"] ?>" class="border w-100" id="thumbnail">
+                    <img src="<?= base_url("{$img[0]}")?>" class="card-img-top" alt="...">
                 </a>
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
+                    <p class="card-text"><?= $product["description"] ?></p>                                
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <p>Price: $<?= $product["price"] ?></p>
                 </div>
             </div>
-            <div class="card mx-auto m-md-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                                
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
-                </div>
-            </div>
-            <div class="card mx-auto m-md-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> 
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
-                </div>
-            </div>
-            <div class="card mx-auto m-md-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
-                </div>
-            </div>
-            <div class="card mx-auto m-md-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                                
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
-                </div>
-            </div>
-            <div class="card mx-auto m-md-2" style="width: 18rem;">
-                <a href="/products/show/6">
-                    <img src="assets/images/s1.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                                
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <p>Price: $1000</p>
-                </div>
-            </div>
+<?php } ?>
+
         </div>
    </div>
 </body>
