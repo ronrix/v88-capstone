@@ -1,9 +1,9 @@
 # DOJO eCommerce
 
-you can see the clickable prototype in
-> here @clickable prototype folder
+you can see the clickable prototype in folder:
+> clickable_prototype
 
-![ERD](https://raw.githubusercontent.com/ronrix/v88-capstone/unfinished/codes/ERD/capstone-ERD.png?token=GHSAT0AAAAAABXRMDOBHNPWQVSBFORIBFTCYX7CY6Q)
+![ERD](https://raw.githubusercontent.com/ronrix/v88-capstone/main/codes/ERD/capstone-ERD.png?token=GHSAT0AAAAAABXRMDOBO2AATWV62NFQ7ICMYX7W4QQ)
 
 ## What was used
 - The project uses codeignier built-in query for manipulating database.
@@ -35,5 +35,4 @@ you can see the clickable prototype in
 
 ### So many features that was not created yet.
 ## will refactor this...
-## even adding comments is little
 
