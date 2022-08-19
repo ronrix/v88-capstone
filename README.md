@@ -3,7 +3,7 @@
 you can see the clickable prototype in
 > here @clickable prototype folder
 
-![ERD](https://raw.githubusercontent.com/ronrix/v88-capstone/main/codes/capstone-ERD.png?token=GHSAT0AAAAAABXRMDOAV4BVIMNDT2XSK2Y2YX7B2MA)
+![ERD](https://raw.githubusercontent.com/ronrix/v88-capstone/unfinished/codes/ERD/capstone-ERD.png?token=GHSAT0AAAAAABXRMDOBHNPWQVSBFORIBFTCYX7CY6Q)
 
 ## What was used
 - The project uses codeignier built-in query for manipulating database.
@@ -36,8 +36,3 @@ you can see the clickable prototype in
 ### So many features that was not created yet.
 ## will refactor this...
 ## even adding comments is little
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 17f021828150829f873bf9385a3a7f6fc2f9ff34
