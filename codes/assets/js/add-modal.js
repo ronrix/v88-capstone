@@ -3,15 +3,13 @@ $(document).ready(function() {
 	// sortable images
     $( "#sortable" ).sortable();
 
+	// when click the pencil it changes the behavior of input category
 	$(document).on("click", "i.bi-pencil-square", function(){
 		var input = $(this).parent().siblings("input");
 		input.removeAttr("readonly");
 		input.toggleClass("border-0");
 	});
 
-	// make the first category as default
-	$("input#category-btn").val($("#collapseExample").children().first().children().first().children()[0].value);
- 
 	// display edit and delete btn when hover; category.
 	$("div.category-lists").hover(function(){
 		$(this).children().next().removeClass("d-none")
@@ -21,9 +19,11 @@ $(document).ready(function() {
 		$(this).children().next().addClass("d-none")
 	});
 
-	// selecting category
+	// selecting category setting the seleted category to the main input category for form submission
 	$(document).on("click", "div#collapseExample div.card div", function() {
+		$("input#category").val($(this).children()[1].value);
 		$("input#category-btn").val($(this).children()[0].value);
+		$("input#category-btn").click();
 	});
 
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
 		
 	});
 
-	// preview image
+	// viewing image before submitting
 	$(document).on("change", "input[type='file']", function() {
 
 		var html_string = ''
@@ -65,6 +65,7 @@ $(document).ready(function() {
 		$("div#sortable").append(html_string);
 	});
 
+	// remove the image 
 	$(document).on("click", "i#remove-img", function() {
 		$(this).parent().remove();
 		$("input[type='file']").val("");
@@ -102,19 +103,14 @@ $(document).ready(function() {
 		$("form#delete-form").submit();
 	})
 
-	$(document).on("submit", "form#delete-form", function(){
-		var form = $(this);
-		$.post(form.attr("action"), form.serialize() , function(res) {
-			console.log(res);
-			if(res.status == 200) {
-				console.log(res);
-			}
-			else {
-				$("button#close").click();
-				$("tbody").html(res);
-			}
-		});
-		return false;
-	})
+	// $(document).on("submit", "form#delete-form", function(){
+	// 	var form = $(this);
+	// 	$.post(form.attr("action"), form.serialize() , function(res) {
+	// 		// $("button#close").click();
+	// 		$("tbody").html(res);
+	// 	});
+		
+	// 	return false;
+	// })
 
 }); 

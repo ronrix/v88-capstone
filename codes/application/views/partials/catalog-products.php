@@ -4,10 +4,10 @@
         $img = json_decode($product["images_path"], true); ?>
 					<div class="card m-2" style="width: 18rem;">
                         <a href="/product/show/<?= $product["id"] ?>" class="border" id="thumbnail">
-                            <img src="<?= base_url("{$img["1"]}")?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url("{$img[0]}")?>" class="card-img-top" alt="<?= base_url("{$img[0]}")?>">
                         </a>
                         <div class="card-body">
-                            <p class="card-text"><?= $product["description"] ?></p>                                
+                            <p class="card-text"><?= $product["product_name"] ?></p>                                
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>

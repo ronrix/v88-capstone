@@ -59,7 +59,7 @@ $route['process_login'] = 'users/process_login';
 $route['process_register'] = 'users/process_register';
 $route['logout'] = 'users/logout';
 
-// main
+// dashboard
 $route["home"] = 'dashboards/index';
 $route["cart"] = 'dashboards/cart';
 $route["catalog"] = 'dashboards/catalog';
@@ -68,25 +68,29 @@ $route["dashboard/products"] = 'dashboards/products';
 $route["get_carts"] = "dashboards/get_carts";
 $route["cart_count_update"] = "dashboards/cart_count_update";
 
+// carts
+$route["checkout"] = "carts/checkout";
+$route["delete_cart"] = "carts/delete_cart";
+$route["update_cart"] = "carts/update_cart";
+$route["add_to_cart"] = "carts/add_to_cart";
+$route["get_total_price"] = "carts/get_total_price";
+
 // products
 $route["product/show/(:any)"] = "products/show/$1";
-$route["categories"] = "products/categories";
 $route["products"] = "products/products";
-$route["checkout"] = "products/checkout";
-$route["delete_cart"] = "products/delete_cart";
-$route["update_cart"] = "products/update_cart";
-$route["add_to_cart"] = "products/add_to_cart";
-$route["orders/show/(:any)"] = "products/show_order/$1";
-$route["get_total_price"] = "products/get_total_price";
 $route["delete_product"] = "products/delete_product";
 $route["update_product"] = "products/update_product";
 
 // categories
 $route["category/(:any)"] = "categories/category/$1";
+$route["show_all"] = "categories/show_all";
+$route["search"] = "categories/search";
+$route["sort_by_price"] = "categories/sort_by_price";
 
 // orders 
 $route["update_order"] = "orders/update_order";
 $route["filter_orders"] = "orders/filter_orders";
+$route["products/orders/show/(:any)"] = "orders/show_order/$1";
 
 
 $route['404_override'] = '';

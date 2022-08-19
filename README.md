@@ -25,6 +25,7 @@ you can see the clickable prototype in
 > shows all the products that was added to the cart
 
 ### admin page
+> there's two main page for the admin page, orders and products 
 ## orders
 > shows all the order lists
 

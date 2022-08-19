@@ -9,6 +9,10 @@ class Products extends CI_Controller {
 		$this->load->model("Dashboard");
 	}
 
+	/*
+		DOCU: this function show the product details of the product
+		OWNER: ronrix
+	*/ 
 	public function show($product_id = 0) {
 		$view_data["name"] = $this->session->userdata("name");
 		$view_data["cart_count"] = $this->session->userdata("cart_count");
@@ -18,54 +22,23 @@ class Products extends CI_Controller {
 		$this->load->view("product-details", $view_data);
 	}
 
-	public function categories() {
-		$result["categories"] = $this->Product->fetch_all_categories();
-		$this->load->view("partials/categories", $result);
-	}
-
+	/*
+		DOCU: this function gets all the products from the db and render to the catalog page
+		OWNER: ronrix
+	*/ 
 	public function products() {
 		$result["products"] = $this->Product->fetch_all_products();
 		$this->load->view("partials/catalog-products", $result);
 	}
 
-	public function add_to_cart() {
 
-		$fields = $this->input->post(NULL, TRUE);
-		$res = $this->Product->add_to_cart($fields, $this->session->userdata("user_id"));
-		
-		if($res) {
-			header("Content-Type: application/json");
-			$cart_count = $this->session->userdata("cart_count");
-			$this->session->set_userdata("cart_count", $cart_count + 1);
-			echo json_encode(array("status" => 200));
-		}
-		else {
-			header("Content-Type: application/json");
-			echo json_encode(array("status" => 500));			
-		}
-	}
-
-	public function checkout() {
-		$fields = $this->input->post(NULL, TRUE);
-		if(!$this->session->userdata("user_id")) {
-			redirect("/login");
-		}
-		$res = $this->Product->checkout($fields, $this->session->userdata("user_id"));
-		if($res) {
-			echo json_encode(array("status" => 200));	
-		}
-		else {
-			echo json_encode(array("status" => 500));	
-		}
-	}
-
+	/*
+		DOCU: this function adds the product with the image file that will be stored on the upload folder
+			the path of the uploaded image will be stored on the db
+		OWNER: ronrix
+	*/ 
 	public function add() {
 
-	
-		// echo "<pre>";
-		// var_dump($_FILES);
-		// echo "</pre>";
-		// die();
 		$paths = array();
 		$count = count($_FILES['images']['name']);
 		for($i=0;$i<$count;$i++){
@@ -107,61 +80,18 @@ class Products extends CI_Controller {
 	}
 
 
-	public function show_order($id=0) {
-		$res = $this->Product->get_product_by_userid($id, $this->session->userdata("user_id"));
-		$res["product_lists"] = json_decode($res["product_lists"], true);
-		$res["billing_info"] = json_decode($res["billing_info"], true);
-		$res["shipping_info"] = json_decode($res["shipping_info"], true);
-		$view_data["order"] = $res;
-		$this->load->view("dashboard/show", $view_data);
-	}
 
-	public function delete_cart() {
-		$fields = $this->input->post(NULL, TRUE);
-		if(!empty($fields)) {
-			$this->Product->delete_cart($fields, $this->session->userdata("user_id"));
-		}
-
-		$view_data["cart_count"] = $this->session->userdata("cart_count");
-		$view_data["user"] = $this->session->userdata("user_id");
-		$view_data["name"] = $this->session->userdata("name");
-		$res = $this->Dashboard->get_all_carts_by_id($view_data["user"]);
-		
-		$view_data["carts"] = $res;
-		$this->load->view("partials/carts-table", $view_data);
-	}
-
-	public function update_cart() {
-		$fields = $this->input->post(NULL, TRUE);
-
-		$this->Product->update_cart_quantity($fields, $this->session->userdata("user_id"));
-
-		$view_data["cart_count"] = $this->session->userdata("cart_count");
-		$view_data["user"] = $this->session->userdata("user_id");
-		$view_data["name"] = $this->session->userdata("name");
-		$res = $this->Dashboard->get_all_carts_by_id($view_data["user"]);
-		
-		$view_data["carts"] = $res;
-		$this->load->view("partials/carts-table", $view_data);
-	}
-
-	public function get_total_price() {
-		$total = $this->Product->get_total_price_carts($this->session->userdata("user_id"));
-		if($total) {
-			$view_data["products"] = $this->Product->fetch_all($this->session->userdata("user_id"));
-			$this->load->view("partials/products-table", $view_data);
-		}
-		else {
-			echo json_encode(array("status" => 500));	
-		}
-	}
-
+	/*
+		DOCU: this function deletes the product, this is invoked on the products page
+		OWNER: ronrix
+	*/ 
 	public function delete_product() {
 		$fields = $this->input->post(NULL, TRUE);
 		$res = $this->Product->delete_product($fields["product_id"], $this->session->userdata("user_id"));
 		if($res) {
-			$view_data["products"] = $this->Product->fetch_all($this->session->userdata("user_id"));
-			$this->load->view("partials/products-table", $view_data);
+			// $view_data["products"] = $this->Product->fetch_all($this->session->userdata("user_id"));
+			// $this->load->view("partials/products-table", $view_data);
+			redirect("/dashboards/products");
 		}
 		else {
 			echo json_encode(array("status" => 500));	

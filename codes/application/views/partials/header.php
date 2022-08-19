@@ -1,12 +1,8 @@
         <!---------------------Navigation-------------------->
-        <header class="row py-2">
+        <header class="row py-2 justify-content-between">
             <a class="col-xs-12 col-md-3 d-flex justify-content-center align-items-center text-decoration-none" href="/">
                 <h1>DO<span>JO</span></h1> eCommerce
             </a>
-            <form class="col-xs-12 d-flex align-items-center col-md-5 p-0 px-2 search" action="" method="POST">
-                <i class="bi bi-search"></i>
-                <input class="col-11 ms-2" type="search" name="search_input" placeholder="search">
-            </form>
             <div class="col-xs-12 col-md-3 align-self-center d-flex justify-content-between align-items-center">
                 <div class="col d-flex justify-content-around align-items-center">
                     <a href="/home">Home</a>
@@ -34,7 +30,7 @@
                 <div class="text-center cart col-2">
                     <a href="/cart" class="text-light w-100">
                         <i class="bi bi-cart-fill"></i>
-                        <div class="cart-count "><?= $cart_count ?></div>
+                        <div class="cart-count"><?= $cart_count ?></div>
                     </a>
                 </div>
                   <!-- Modal -->

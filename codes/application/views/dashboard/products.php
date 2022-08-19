@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Orders</title>
+        <title>Products | Dojo</title>
         <!--Google fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,7 +68,7 @@
                             <td><?= $product["quantity_sold"] ?></td>
                             <td>
                                 <a href="" data-bs-toggle="modal" data-id="<?= $product["id"] ?>" data-bs-target="#edit-modal" class="nav-link d-inline-block" id="update">Edit</a>
-                                <form action="/delete_product" id="delete-form">
+                                <form action="/delete_product" id="delete-form" method="POST">
                                     <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash("hash") ?>">
                                     <input type="hidden" name="product_id" value="<?= $product["id"] ?>">
                                     <a href="" data-bs-toggle="modal" data-bs-target="#delete-modal" class="nav-link d-inline-block" id="delete">Remove</a>

@@ -33,7 +33,7 @@
                                         <!------Category Dropdown-------->
                                         <div class="col my-2">
                                             <label for="category-btn">Category</label>
-                                            <input type="hidden" name="category">
+                                            <input type="hidden" name="category" id="category" >
                                             <input type="text" readonly id="category-btn" class="text-left btn w-100" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
                                         </div>
                                         <div class="collapse" id="collapseExample">
@@ -41,7 +41,7 @@
 <?php 
     foreach($categories as $category) { ?>
                                                 <div class="d-flex justify-content-between align-items-center category-lists cursor-pointer">
-                                                    <input type="text" id="category" name="" value="<?= $category["category"] ?>" class="w-100 border-0" readonly>
+                                                    <input type="text" name="" value="<?= $category["category"] ?>" class="w-100 border-0" readonly>
                                                     <input type="hidden" name="category_id" value="<?= $category["id"] ?>" id="category_id">
                                                     <div class="d-flex d-none">
                                                         <i class="bi bi-pencil-square mx-2"></i><i class="bi bi-trash3-fill"></i>

@@ -34,6 +34,18 @@ class Order extends CI_Model {
 
 		$filter_query = $this->status(($fields["order_status"])) !== "ASC" ? " AND order_status=? " : " ORDER BY ? "; 
 		
+
+		if(!empty($fields["search"])) {
+			$query = "SELECT *, DATE_FORMAT(created_at, '%m/%d/%Y') AS date FROM orders WHERE user_id=? AND id=? OR JSON_EXTRACT(shipping_info, '$') LIKE ?";
+			return $this->db->query($query, 
+				array(
+					$user_id,
+					$this->security->xss_clean($fields["search"]),
+					"%". $this->security->xss_clean($fields["search"]) . "%",
+				)
+			)->result_array();
+		}
+
 		return $this->db->query("SELECT *, DATE_FORMAT(created_at, '%m/%d/%Y') AS date FROM orders WHERE user_id=? $filter_query", 
 			array(
 				$user_id,

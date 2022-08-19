@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(Product Page) | Sample Product | Shopah </title>
+    <title>(Cart Page) | Dojo </title>
      <!--Jquery library-->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- bootstrap library-->
@@ -45,7 +45,7 @@
 		</div>
 		
 		<div class="container">
-			<div class="alert"></div>
+			<div class="alert" id="msg"></div>
 			<table class="table table-striped mt-5 overflow-scroll h">
 				<thead>
 					<tr>
@@ -75,7 +75,7 @@
 									<input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash("hash") ?>">
 									<input type="hidden" name="admin_id" value="<?= $new->admin_id ?>">
 									<input type="hidden" name="cart_id" value="<?= $cart["id"] ?>">
-									<i class="ms-3 text-danger bi bi-trash3-fill" data-bs-toggle="modal" data-bs-target="#delete-modal" class="nav-link d-inline-block"></i>
+									<i id="trash-icon" class="ms-3 text-danger bi bi-trash3-fill" data-bs-toggle="modal" data-bs-target="#delete-modal" class="nav-link d-inline-block"></i>
 								</form>
 							</div>
 						</td>
@@ -92,8 +92,8 @@
 			</table>
 
 			<div class="row text-end">
-				<p class="muted fw-bold">Sub Total: $<span id="total"><?= $total ?></span></p>
-				<p class="muted fw-bold">Total: $<span id="total"><?= $total + 100 ?></span></p>
+				<p class="muted fw-bold">Sub Total: $<span id="sub-total"><?= $total ?></span></p>
+				<p class="muted fw-bold">Total: $<span id="total"><?= $total ? $total + 100 : 0 ?></span></p>
 				<a href="/catalog" class="d-block w-auto mt-2 mb-4">
 					<i class="bi bi-caret-right-fill"></i>
 					Continue Shopping
@@ -101,10 +101,9 @@
 			</div>
 
 			<!-- ------------------------------------------Delete modal------------------------------------------------------------- -->
-			<?php $this->load->view("partials/delete") ?>
 			
 		   <!-- checkout -->
-		   <form action="/checkout" method="POST" class="w-50 mb-5">
+		   <form action="/checkout" method="POST" class="w-50 mb-5" id="checkout">
 				<input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash("hash") ?>">
 				<div class="col">
 					<h2 class="fs-5">Shipping Information</h2>

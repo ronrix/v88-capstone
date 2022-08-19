@@ -39,11 +39,13 @@ $(document).ready(function() {
 					$("p#msg").fadeOut();
 				}, 1000);
 			}
+
+			$.get("/cart_count_update", function(res) {
+				$("div.cart-count").text(res);
+			});
 		});
 
-		$.get("/cart_count_update", function(res) {
-			$("div.cart-count").text(res);
-		})
+	
 
 		return false;
 	});

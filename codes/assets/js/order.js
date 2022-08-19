@@ -13,5 +13,9 @@ $(document).ready(function() {
 		$(this).parent().submit();
 	})
 
+	$(document).on("keyup", "input[type='search']", function() {
+		$(this).parent().submit();
+	})
+
 	$("form#filter").submit();
 });

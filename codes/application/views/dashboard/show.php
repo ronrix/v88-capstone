@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Order</title>
+        <title>Order Details | Dojo</title>
         <!--Google fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,7 +65,9 @@
                             </thead>
                             <tbody>
 <?php 
-    foreach(array($order["product_lists"]) as $product) { ?>
+    $total = 0;
+    foreach(array($order["product_lists"]) as $product) { 
+        $total += $product["total"]; ?>
                                 <tr>
                                     <td><?= $order["id"] ?></td>
                                     <td><?= $product["item"] ?></td>
@@ -79,9 +81,9 @@
                         <div class="d-flex justify-content-around align-items-center">
                             <p class="lead p-2 bg-success text-light">Status: <?= $order["order_status"] ?></p>
                             <div class="border p-5 fw-bold">
-                                <p>Sub total: $0 ?></p>
-                                <p>Shipping Fee: $10</p>
-                                <p>Sub total: $50</p>
+                                <p>Sub total: $<?= $total - 100 ?></p>
+                                <p>Shipping Fee: $100 </p>
+                                <p>Total: $<?= $total ?></p>
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,7 @@
             $data["product_lists"] = json_decode($data["product_lists"], true);
             $data["billing_info"] = json_decode($data["billing_info"], true); ?>
                         <tr>
-                            <td><a href="/orders/show/<?= $data["id"] ?>" class="nav-link"><?= $data["id"] ?></a></td>
+                            <td><a href="/products/orders/show/<?= $data["id"] ?>" class="nav-link"><?= $data["id"] ?></a></td>
                             <td><?= $data["billing_info"]["first_name"] ?></td>
                             <td><?= $data["date"] ?></td>
                             <td><?= $data["billing_info"]["address"] . " " . $data["billing_info"]["address_1"]?></td>
