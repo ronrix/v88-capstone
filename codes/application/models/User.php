@@ -18,6 +18,10 @@ class User extends CI_Model {
 		return TRUE;
 	}
 
+	public function get_user_by_id($user_id) {
+		return $this->db->query("SELECT * FROM users WHERE id=?", $user_id)->row_array();
+	}
+
 	/*
 		DOCU: this function insert new user if inputs are valid
 			it insert the user to the users table and users_information table
@@ -30,27 +34,19 @@ class User extends CI_Model {
 		}
 
 		// users table
-		$query = "INSERT INTO users(email, password) VALUES(?, ?)";
+		$query = "INSERT INTO users(first_name, last_name, email_address, password, contact_number, is_admin, ip_addr) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		$params = array(
-			$this->security->xss_clean($fields["email_address"]),
-			md5($this->security->xss_clean($fields["password"]).$key)
-		);
-		$this->db->query($query, $params);
-		$user_id = $this->db->insert_id();
-
-		// users_information table
-		$query = "INSERT INTO users_information(user_id, first_name, last_name, email_address, contact_number, is_admin) VALUES(?, ?, ?, ?, ?, ?)";
-		$params = array(
-			$user_id,
 			$this->security->xss_clean($fields["first_name"]),
 			$this->security->xss_clean($fields["last_name"]),
 			$this->security->xss_clean($fields["email_address"]),
+			md5($this->security->xss_clean($fields["password"].$key)),
 			$this->security->xss_clean($fields["contact_number"]),
 			$this->security->xss_clean($fields["role"]),
+			$this->input->ip_address(),
 		);
 		$this->db->query($query, $params);
 
-		return $user_id;
+		return $this->db->insert_id();
 	}
 
 	private function validate_login($post) {
@@ -76,11 +72,11 @@ class User extends CI_Model {
 			return 0;
 		}
 
-		$user =$this->db->query("SELECT * FROM users WHERE email=?", $this->security->xss_clean($fields["email_address"]))->row_array();
+		$user =$this->db->query("SELECT * FROM users WHERE email_address=?", $this->security->xss_clean($fields["email_address"]))->row_array();
 
 		$hashed_password = md5($fields["password"].$key);
 		if($hashed_password == $user["password"]) {
-			return $user["id"];
+			return $user;
 		}
 		return -1;
 	}

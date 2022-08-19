@@ -1,6 +1,6 @@
-  <!---------------------Navigation-------------------->
+        <!---------------------Navigation-------------------->
         <header class="row py-2">
-            <a class="col-xs-12 col-md-3 d-flex justify-content-center align-items-center text-decoration-none" href="/home">
+            <a class="col-xs-12 col-md-3 d-flex justify-content-center align-items-center text-decoration-none" href="/">
                 <h1>DO<span>JO</span></h1> eCommerce
             </a>
             <form class="col-xs-12 d-flex align-items-center col-md-5 p-0 px-2 search" action="" method="POST">
@@ -9,13 +9,11 @@
             </form>
             <div class="col-xs-12 col-md-3 align-self-center d-flex justify-content-between align-items-center">
                 <div class="col d-flex justify-content-around align-items-center">
-<?php 
-        if($user) { ?>
                     <a href="/home">Home</a>
-                    <a href="/products">Products</a>
+                    <a href="/catalog">Catalog</a>
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Ronrix
+                            <?= $name ?>
                         </button>
                         <ul class="dropdown-menu">
                             <li>
@@ -32,16 +30,11 @@
                             </li>
                         </ul>
                     </div>
-<?php   } else { ?>
-                    <a href="/home">Home</a>
-                    <a href="/products">Products</a>
-                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Signin</a>
-<?php   } ?> 
                 </div>
                 <div class="text-center cart col-2">
                     <a href="/cart" class="text-light w-100">
                         <i class="bi bi-cart-fill"></i>
-                        <div class="cart-count ">12</div>
+                        <div class="cart-count "><?= $cart_count ?></div>
                     </a>
                 </div>
                   <!-- Modal -->

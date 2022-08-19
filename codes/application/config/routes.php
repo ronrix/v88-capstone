@@ -49,22 +49,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'users';
+$route['default_controller'] = 'dashboards';
 // authentication route
+$route['admin'] = 'users/admin';
 $route['login'] = 'users/login';
 $route['register'] = 'users/register';
+$route['profile'] = 'users/profile';
 $route['process_login'] = 'users/process_login';
 $route['process_register'] = 'users/process_register';
+$route['logout'] = 'users/logout';
 
-// dashboard
-$route["logout"] = "dashboards/logout";
-$route["admin"] = "dashboards/admin";
-$route["home"] = "dashboards/home";
-$route["products"] = "dashboards/products";
-$route["cart"] = "dashboards/cart";
+// main
+$route["home"] = 'dashboards/index';
+$route["cart"] = 'dashboards/cart';
+$route["catalog"] = 'dashboards/catalog';
+$route["dashboard/orders"] = 'dashboards';
+$route["dashboard/products"] = 'dashboards/products';
+$route["get_carts"] = "dashboards/get_carts";
+$route["cart_count_update"] = "dashboards/cart_count_update";
 
 // products
-$route["products/show/(:any)"] = "products/show/$1";
+$route["product/show/(:any)"] = "products/show/$1";
+$route["categories"] = "products/categories";
+$route["products"] = "products/products";
+$route["checkout"] = "products/checkout";
+$route["delete_cart"] = "products/delete_cart";
+$route["update_cart"] = "products/update_cart";
+$route["add_to_cart"] = "products/add_to_cart";
+$route["orders/show/(:any)"] = "products/show_order/$1";
+$route["get_total_price"] = "products/get_total_price";
+$route["delete_product"] = "products/delete_product";
+$route["update_product"] = "products/update_product";
+
+// categories
+$route["category/(:any)"] = "categories/category/$1";
+
+// orders 
+$route["update_order"] = "orders/update_order";
+$route["filter_orders"] = "orders/filter_orders";
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
