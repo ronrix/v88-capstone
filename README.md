@@ -3,7 +3,7 @@
 you can see the clickable prototype in
 > here @clickable prototype folder
 
-![ERD](https://raw.githubusercontent.com/ronrix/v88-capstone/unfinished/codes/ERD/capstone-ERD.png?token=GHSAT0AAAAAABXRMDOBHNPWQVSBFORIBFTCYX7CY6Q)
+![ERD](https://raw.githubusercontent.com/ronrix/v88-capstone/unfinished/codes/ERD/capstone-ERD.png?token=GHSAT0AAAAAABXRMDOAVFX4P2AQKFNLJUEUYX7DH3A)
 
 ## What was used
 - The project uses codeignier built-in query for manipulating database.
