@@ -14,6 +14,7 @@ class Dashboards extends CI_Controller {
 		$this->load->model("Product");
 		$this->load->model("Category");
 		$this->load->model("Cart");
+		$this->load->model("Order");
 		if(!$this->session->userdata("user_id")) {
 			redirect("/login");
 		}
@@ -32,10 +33,13 @@ class Dashboards extends CI_Controller {
 	*/
 	public function index() {
 		if($this->is_admin["is_admin"] == 1) {
-			$res = $this->Product->get_orders_by_id($this->session->userdata("user_id"));
+			$res = $this->Order->get_orders_for_first_time($this->session->userdata("user_id"));
 
 			$view_data["orders"] = $res;
-			$view_data["pagination_count"] = count($view_data["orders"])/5;
+			$total_count =  $this->Order->get_total_count_of_orders_by_id($this->session->userdata("user_id"));
+			$view_data["pagination_count"] = $total_count["total_count"]/5;
+			$view_data["page_start"] = $res[0]["id"];
+			$this->session->set_userdata("page", $view_data["page_start"]);
 
 			$this->load->view("dashboard/orders", $view_data);
 		}
@@ -59,8 +63,10 @@ class Dashboards extends CI_Controller {
 		$view_data["user"] = $this->session->userdata("user_id");
 		$view_data["name"] = $this->session->userdata("name");
 		$view_data["cart_count"] = $this->session->userdata("cart_count");
+
 		$view_data["products"] = $this->Product->fetch_all($this->session->userdata("user_id"));
 		$view_data["categories"] = $this->Category->fetch_all_categories();
+
 		$view_data["pagination_count"] = count($view_data["products"])/5;
 		if($this->is_admin["is_admin"] == 1) {
 			$this->load->view("dashboard/products", $view_data);

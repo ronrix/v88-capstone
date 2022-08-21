@@ -30,6 +30,33 @@ class Order extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
+	public function get_orders_for_first_time($user_id) {
+		return $this->db->query("SELECT *, DATE_FORMAT(created_at, '%m/%d/%Y') AS date FROM orders WHERE user_id=? LIMIT 5", $user_id)->result_array();
+	}
+
+	public function get_orders_by_pagination($start_id, $page, $user_id) {
+		$params = array(
+			$this->security->xss_clean($start_id) + 5,
+			$user_id
+		);
+
+		return $this->db->query("SELECT *, DATE_FORMAT(created_at, '%m/%d/%Y') AS date FROM orders WHERE id >= ? AND user_id=? LIMIT 5", $params)->result_array();
+	}
+
+	/* 
+		DOCU: this function gets the count of the orders based on the admin/user id
+		OWNER: ronrix
+	*/ 
+	public function get_total_count_of_orders_by_id($id) {
+		return $this->db->query("SELECT COUNT(*) AS total_count
+				FROM orders 
+				WHERE user_id=?", $id)->row_array();
+	}
+
+	/*
+		DOCU: this function filters the orders based on the search input from orders page
+		OWNER: ronrix
+	*/ 
 	public function filter_orders($fields, $user_id) {
 
 		$filter_query = $this->status(($fields["order_status"])) !== "ASC" ? " AND order_status=? " : " ORDER BY ? "; 

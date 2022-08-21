@@ -19,12 +19,6 @@ class Product extends CI_Model {
 		return $this->db->query("SELECT * FROM products WHERE id=?", array($this->security->xss_clean($product_id)))->row_array();
 	}
 
-	public function get_orders_by_id($id) {
-		return $this->db->query("SELECT *, DATE_FORMAT(created_at, '%m/%d/%Y') AS date
-				FROM orders 
-				WHERE user_id=?", $id)->result_array();
-	}
-
 	public function get_order_by_id($id) {
 		return $this->db->query("SELECT orders
 				FROM orders WHERE id=?"

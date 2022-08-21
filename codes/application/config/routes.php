@@ -90,6 +90,7 @@ $route["sort_by_price"] = "categories/sort_by_price";
 // orders 
 $route["update_order"] = "orders/update_order";
 $route["filter_orders"] = "orders/filter_orders";
+$route["paginate/(:any)"] = "orders/paginate/$1";
 $route["products/orders/show/(:any)"] = "orders/show_order/$1";
 
 

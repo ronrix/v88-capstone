@@ -49,5 +49,19 @@ class Orders extends CI_Controller {
 		$this->load->view("dashboard/show", $view_data);
 	}
 
+	/*
+		DOCU: this function is invoked on the pagination within orders page
+		OWNER: ronrix
+	*/ 
+	public function paginate($id = 0) {
+		if($id == 0) {
+			return;
+		}
+		$res = $this->Order->get_orders_by_pagination($id, $this->session->userdata("page") , $this->session->userdata("user_id"));
+		$view_data["orders"] = $res;
+		$view_data["page_start"] = $res[0]["id"];
+
+		$this->load->view("partials/order-table.php", $view_data);
+	}
 
 }
