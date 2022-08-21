@@ -11,10 +11,38 @@ body {
 	color: @primary-color;
 }
 
+
+// color resets
+
+a {
+	color: @secondary-color;
+}
+
+.dropdown-item {
+	&:active {
+		background-color: @third-color !important;
+	}
+}
+
+.form-control, .form-select {
+	border-color: @secondary-color !important;
+
+	&:focus {		
+		border-color: @secondary-color !important;
+		box-shadow: 0 0 0 0.25rem rgba(2, 97, 20, 0.25) !important;
+	}
+}
+
+
 .btn {
 	background-color: @secondary-color !important;
 	color: #fff;
 
+	&:focus {		
+		border-color: @secondary-color !important;
+		box-shadow: 0 0 0 0.25rem rgba(2, 97, 20, 0.25) !important;
+	}
+	
 	&:hover {
 		background-color: @primary-color !important;
 		color: #fff;
